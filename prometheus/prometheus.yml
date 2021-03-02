@@ -21,38 +21,45 @@ rule_files:
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'yearn-v1'
+    honor_timestamps: true
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
     - targets: ['yearn-exporter-v1:8800']
 
   - job_name: 'yearn-v2'
+    honor_timestamps: true
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
     - targets: ['yearn-exporter-v2:8801']
 
-  - job_name: 'yearn-experimental'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['yearn-exporter-experimental:8804']
-
-  - job_name: 'prometheus'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:9090']
-
   - job_name: 'iearn'
+    honor_timestamps: true
+
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
     - targets: ['yearn-exporter-iearn:8802']
 
   - job_name: 'ironbank'
+    honor_timestamps: true
+
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
     - targets: ['yearn-exporter-ironbank:8803']
 
+  - job_name: 'yearn-experimental'
+    honor_timestamps: true
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+    - targets: ['yearn-exporter-experimental:8804']
+
+  - job_name: 'victoria-metrics'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+    - targets: ['victoria-metrics:8428']
