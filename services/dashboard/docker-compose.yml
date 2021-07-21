@@ -13,7 +13,7 @@ networks:
 
 services:
   yearn-exporter:
-    build: .
+    image: ghcr.io/yearn/yearn-exporter
     command: exporter
     ports:
       - 8800:8800
